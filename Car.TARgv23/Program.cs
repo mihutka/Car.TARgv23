@@ -18,7 +18,7 @@ namespace Car.TARgv23
             builder.Services.AddScoped<ICarInterface, CarServices>();
             builder.Services.AddDbContext<CarContext>(options =>
                 options.UseSqlServer(
-                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    builder.Configuration.GetConnectionString("DefaultConnection2"),
                     b => b.MigrationsAssembly("Car.TARgv23.Data")));
 
             
