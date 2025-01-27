@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Car.TARgv23.Core.Domain
 {
-    public class Car
+    public class CarDomain
     {
         public Guid Id { get; set; }
 
