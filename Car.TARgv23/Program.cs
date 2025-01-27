@@ -1,4 +1,5 @@
 using Car.TARgv23.ApplicationServices.Services;
+using Car.TARgv23.Core.ServerInterface;
 using Car.TARgv23.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,7 @@ namespace Car.TARgv23
             builder.Services.AddControllersWithViews();
 
             
-            builder.Services.AddScoped<CarServices, CarServices>();
+            builder.Services.AddScoped<ICarInterface, CarServices>();
             builder.Services.AddDbContext<CarContext>(options =>
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
