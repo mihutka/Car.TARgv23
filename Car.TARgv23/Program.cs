@@ -1,3 +1,7 @@
+using Car.TARgv23.ApplicationServices.Services;
+using Car.TARgv23.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Car.TARgv23
 {
     public class Program
@@ -6,9 +10,17 @@ namespace Car.TARgv23
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            
             builder.Services.AddControllersWithViews();
 
+            
+            builder.Services.AddScoped<CarServices, CarServices>();
+            builder.Services.AddDbContext<CarContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly("CarTARgv23.Data")));
+
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
