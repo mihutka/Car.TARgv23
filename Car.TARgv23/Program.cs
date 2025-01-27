@@ -18,7 +18,7 @@ namespace Car.TARgv23
             builder.Services.AddDbContext<CarContext>(options =>
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("CarTARgv23.Data")));
+                    b => b.MigrationsAssembly("Car.TARgv23.Data")));
 
             
             var app = builder.Build();
